@@ -1,5 +1,6 @@
-# 281A - word capitalization
+# 04-281A-word capitalization
 
 s = input()
-s_new = s[0].upper() + s[1:]
-print(s_new)
+s1 = s[0].upper()
+s2 = s[1:]
+print(s1 + s2)
