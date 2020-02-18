@@ -1,8 +1,11 @@
-# 339A - helpful maths
+# 05 - 339A - helpful maths
 
-nums = input().split('+')
-num = [int(n) for n in nums]
-num.sort()
-new_num = [str(n) for n in num]
-s = "+".join(new_num)
-print(s)
+s = input()
+if len(s) == 1:
+    print(s)
+else:
+    number = s.split("+")
+    numbers = [int(number[i]) for i in range(len(number))]
+    numbers.sort()
+    numberss = [str(numbers[i]) for i in range(len(number))]
+    print("+".join(numberss))
