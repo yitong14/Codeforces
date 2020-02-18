@@ -1,20 +1,32 @@
-# 455A - boredom - time limit exceed
-
-def f(nums):
-    if len(nums) == 0:
-        return 0
-    counts = {}
-    for i in range(max(nums)+1):
-        if i in nums:
-            counts.update({i:nums.count(i)})
-        else:
-            counts.update({i: 0})
-    d = [0, counts[1]]
-    for i in range(2, max(nums)+1):
-        d.append(max(d[i-1], d[i-2]+counts[i]*i))
-    return d[-1]
-
-
+# 455A - boredom
+## a better solution
 n = int(input())
-num = list(map(int, input().split()))
-print(f(num))
+s = [0]*100002
+for i in map(int, input().split()):
+    s[i] += i
+
+a = b = 0
+for d in s:
+    a, b = max(a, b), a+d
+
+print(a)
+
+
+## my solution
+n = int(input())
+a = [int(i) for i in input().split()]
+
+max_value = max(a)
+
+cnt = (max_value+1)*[0]
+for i in range(n):
+    cnt[a[i]] += 1
+
+f = (max_value+1)*[0]
+f[0] = 0
+f[1] = cnt[1]
+
+for i in range(2, max_value+1):
+    f[i] = max(f[i-1], f[i-2]+cnt[i]*i)
+
+print(f[max_value])
