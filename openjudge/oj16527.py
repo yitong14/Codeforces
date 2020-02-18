@@ -1,12 +1,7 @@
-# oj16527 - 字符串连接位置
-
+# 16527 - 字符串连接位置
 a = input()
 b = input()
-i = len(a) - 1
-j = 1
-while i >= 0:
-    if a[i:] == b[:j]:
-        print(i)
+for i in range(len(a)):
+    if a[-(i+1):] == b[:i+1]:
+        print(len(a)-i-1)
         break
-    i -= 1
-    j += 1
